@@ -75,6 +75,13 @@ export const domController = function () {
     console.log(slideButtonsArray);
 
 
+
+    function checkActiveButton() {
+        // left off here
+    }
+
+
+
     return { renderSlide, resetSlides };
 
 };
