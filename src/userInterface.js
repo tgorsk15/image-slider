@@ -12,9 +12,29 @@ export const domController = function () {
 
 
 
+    function resetSlides() {
+
+        slidesArray.forEach(item => {
+            if (item.classList.contains('slide-active')) {
+                item.classList.remove('slide-active');
+                item.classList.add('slide')
+            }
+        });
+    }
+
+
     function renderSlide(slide) {
-        slide.classList.remove("slide");
-        slide.classList.add("slide-active");
+
+        // slidesArray.forEach(item => {
+        //     if (item.classList.contains('slide-active')) {
+        //         item.classList.remove('slide-active');
+        //         item.classList.add('slide')
+        //     }
+        // })
+        resetSlides();
+
+        slide.classList.remove('slide');
+        slide.classList.add('slide-active');
 
         currentSlide = slide;
         console.log(slide);
@@ -23,6 +43,8 @@ export const domController = function () {
     }
 
 
+  
+
 
     nextButton.addEventListener("click", () => {
 
@@ -30,5 +52,5 @@ export const domController = function () {
         
     });
 
-    return { renderSlide };
+    return { renderSlide, resetSlides };
 };
