@@ -8,6 +8,7 @@ export const domController = function () {
 
     const nextButton = document.querySelector(".forward");
     const backButton = document.querySelector(".back");
+
     let currentSlide;
 
 
@@ -47,6 +48,15 @@ export const domController = function () {
         }
         
     });
+
+    backButton.addEventListener('click', () => {
+
+        if (slidesArray.indexOf(currentSlide) > 0) {
+            arrowFunctionality.backSlideChange(currentSlide);
+        }
+
+    })
+
 
     return { renderSlide, resetSlides };
 };

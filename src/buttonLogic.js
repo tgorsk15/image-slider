@@ -23,8 +23,16 @@ export const arrowsController = function () {
     }
 
 
-    function backSlideChange() {
+    function backSlideChange(currentSlide) {
+        console.log(currentSlide);
 
+        const newActiveSlide = slidesArray.indexOf(currentSlide) - 1;
+        console.log(newActiveSlide);
+
+        const newCurrentSlide = slidesArray[newActiveSlide];
+        console.log(newCurrentSlide);
+
+        domRun.renderSlide(newCurrentSlide);
 
     }
 
