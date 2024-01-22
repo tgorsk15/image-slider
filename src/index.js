@@ -4,7 +4,7 @@ import { domController } from "./userInterface";
 
 
 export const slidesArray = [];
-const domRun = domController();
+export const domRun = domController();
 
 const slides = document.querySelectorAll(".slide");
 
@@ -14,8 +14,10 @@ slides.forEach(slide => {
 });
 console.log(slidesArray);
 
-console.log(slidesArray[0])
 
-domRun.renderSlide(slidesArray[0])
+// eslint-disable-next-line prefer-const, import/no-mutable-exports
+export let activeSlide = slidesArray[0];
+
+domRun.renderSlide(slidesArray[0]);
 
 
