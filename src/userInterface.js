@@ -25,6 +25,25 @@ export const domController = function () {
     }
 
 
+    function changeActiveButton(slide) {
+
+        const activeSlideIndex = slidesArray.indexOf(slide);
+        const activeButton = slideButtonsArray[activeSlideIndex];
+
+
+        slideButtonsArray.forEach(button => {
+            if (button.classList.contains('slide-button-active')) {
+                button.classList.remove('slide-button-active');
+                button.classList.add('slide-button')
+            }
+        });
+
+        activeButton.classList.remove('slide-button');
+        activeButton.classList.add('slide-button-active');
+        console.log(activeButton);
+    }
+
+
     function renderSlide(slide) {
 
         resetSlides();
@@ -34,6 +53,8 @@ export const domController = function () {
 
         currentSlide = slide;
         console.log(slide);
+
+        changeActiveButton(slide);
 
         return currentSlide
     };
@@ -76,12 +97,10 @@ export const domController = function () {
 
 
 
-    function checkActiveButton() {
-        // left off here
-    }
 
 
 
-    return { renderSlide, resetSlides };
+
+    return { renderSlide, resetSlides, changeActiveButton };
 
 };

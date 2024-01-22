@@ -55,3 +55,7 @@ img {
 .slide-button {
     margin: 0px 10px;
 }
+
+.slide-button-active {
+    background-color: red;
+}
