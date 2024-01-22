@@ -10,6 +10,7 @@ export const arrowsController = function () {
         console.log('it has changed');
         console.log(currentSlide);
         
+          
         const newActiveSlide = slidesArray.indexOf(currentSlide) + 1;
         console.log(newActiveSlide);
 
@@ -17,6 +18,8 @@ export const arrowsController = function () {
         console.log(newCurrentSlide);
 
         domRun.renderSlide(newCurrentSlide);
+
+
     }
 
 

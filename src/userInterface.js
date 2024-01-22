@@ -25,12 +25,6 @@ export const domController = function () {
 
     function renderSlide(slide) {
 
-        // slidesArray.forEach(item => {
-        //     if (item.classList.contains('slide-active')) {
-        //         item.classList.remove('slide-active');
-        //         item.classList.add('slide')
-        //     }
-        // })
         resetSlides();
 
         slide.classList.remove('slide');
@@ -48,7 +42,9 @@ export const domController = function () {
 
     nextButton.addEventListener("click", () => {
 
-        arrowFunctionality.nextSlideChange(currentSlide);
+        if (slidesArray.indexOf(currentSlide) < 7) {
+            arrowFunctionality.nextSlideChange(currentSlide);
+        }
         
     });
 
