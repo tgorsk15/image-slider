@@ -20,6 +20,13 @@ body {
 
 
 .slide {
+    display: none;
+    /* padding: 20px;
+    overflow: hidden; */
+}
+
+.slide-active {
+    display: block;
     padding: 20px;
     overflow: hidden;
 }
