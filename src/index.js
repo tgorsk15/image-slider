@@ -4,6 +4,7 @@ import { domController } from "./userInterface";
 
 
 export const slidesArray = [];
+export const slideButtonsArray = [];
 export const domRun = domController();
 
 const slides = document.querySelectorAll(".slide");

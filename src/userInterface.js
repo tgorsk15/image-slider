@@ -1,10 +1,11 @@
-import { slidesArray, activeSlide } from "./index";
-import { arrowsController } from "./buttonLogic";
+import { slidesArray, slideButtonsArray } from "./index";
+import { arrowsController, slideButtonsController } from "./buttonLogic";
 
 // eslint-disable-next-line import/prefer-default-export
 export const domController = function () {
 
     const arrowFunctionality = arrowsController();
+    const slideButtonsRun = slideButtonsController();
 
     const nextButton = document.querySelector(".forward");
     const backButton = document.querySelector(".back");
@@ -35,7 +36,7 @@ export const domController = function () {
         console.log(slide);
 
         return currentSlide
-    }
+    };
 
 
   
@@ -55,8 +56,25 @@ export const domController = function () {
             arrowFunctionality.backSlideChange(currentSlide);
         }
 
+    });
+
+
+
+    // logic for slide Buttons
+    const slideButtons = document.querySelectorAll('.slide-button');
+
+    slideButtons.forEach(button => {
+        slideButtonsArray.push(button);
+        const slideButtonIndex = slideButtonsArray.indexOf(button);
+
+        button.addEventListener('click', () => {
+            slideButtonsRun.getSlideIndex(currentSlide, slideButtonIndex);
+        })
+
     })
+    console.log(slideButtonsArray);
 
 
     return { renderSlide, resetSlides };
+
 };

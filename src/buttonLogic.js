@@ -1,4 +1,4 @@
-import { slidesArray, domRun } from "./index";
+import { slidesArray, domRun, slideButtonsArray } from "./index";
 
 
 
@@ -24,7 +24,6 @@ export const arrowsController = function () {
 
 
     function backSlideChange(currentSlide) {
-        console.log(currentSlide);
 
         const newActiveSlide = slidesArray.indexOf(currentSlide) - 1;
         console.log(newActiveSlide);
@@ -38,6 +37,28 @@ export const arrowsController = function () {
 
 
     return {nextSlideChange, backSlideChange}
+}
+
+
+
+export const slideButtonsController = function () {
+
+
+    function getSlideIndex(currentSlide, buttonIndex) {
+        console.log('the slide has been got');
+        console.log(currentSlide);
+        console.log(buttonIndex);
+
+        const newCurrentSlide = slidesArray[buttonIndex];
+        console.log(newCurrentSlide);
+
+        domRun.renderSlide(newCurrentSlide);
+
+    };
+
+
+    return { getSlideIndex }
+
 }
 
 
