@@ -1,5 +1,7 @@
 import { slidesArray, slideButtonsArray } from "./index";
 import { arrowsController, slideButtonsController } from "./buttonLogic";
+// import rightArrowPic from "icons/.right-arrow.png";
+// import leftArrowPic from "./icons/.left-arrow.png"
 
 // eslint-disable-next-line import/prefer-default-export
 export const domController = function () {
@@ -12,6 +14,12 @@ export const domController = function () {
 
     let currentSlide;
 
+
+    function styleButtons() {
+        const rightArrow = document.createElement('img')
+        rightArrow.src = rightArrowPic
+
+    }
 
 
     function resetSlides() {
@@ -50,14 +58,18 @@ export const domController = function () {
         resetSlides();
 
         slide.classList.remove('slide');
+
+        // slide.style.opacity = '1';
+        // slide.style.transform = 'translateX(0)';
+
         slide.classList.add('slide-active');
 
         currentSlide = slide;
+
+
         console.log(slide);
 
         changeActiveButton(slide);
-
-        // automaticSlideChange();
 
         return currentSlide
     };
@@ -97,7 +109,6 @@ export const domController = function () {
         if (slidesArray.indexOf(currentSlide) > 0) {
             arrowFunctionality.backSlideChange(currentSlide);
 
-            // setTimeout(automaticSlideChange, 5000);
         }
 
     });
@@ -118,24 +129,21 @@ export const domController = function () {
     })
     console.log(slideButtonsArray);
 
-
-    // // set up automatic slide change:
-    // function automaticSlideChange() {
-    //     if (slidesArray.indexOf(currentSlide) < 7) {
-    //         arrowFunctionality.nextSlideChange(currentSlide);
-
-    //         setTimeout(automaticSlideChange, 5000);
-    //         console.log('timer ran');
-    //     };
-
-
-    // }
     
     setTimeout(automaticSlideChange, 5000);
 
 
 
 
-    return { renderSlide, resetSlides, changeActiveButton, automaticSlideChange };
+    return { 
+        renderSlide, 
+
+        resetSlides, 
+
+        changeActiveButton,
+
+        automaticSlideChange,
+    
+        styleButtons };
 
 };
