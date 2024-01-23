@@ -44,6 +44,7 @@ export const domController = function () {
     }
 
 
+
     function renderSlide(slide) {
 
         resetSlides();
@@ -56,11 +57,31 @@ export const domController = function () {
 
         changeActiveButton(slide);
 
+        // automaticSlideChange();
+
         return currentSlide
     };
 
 
-  
+    // set up automatic slide change:
+    function automaticSlideChange() {
+        if (slidesArray.indexOf(currentSlide) < 7) {
+            arrowFunctionality.nextSlideChange(currentSlide);
+
+            setTimeout(automaticSlideChange, 6000);
+            console.log('timer ran');
+        } else {
+            const firstSlide = slidesArray[0];
+            console.log(firstSlide);
+
+            setTimeout(renderSlide(firstSlide), 6000);
+
+            setTimeout(automaticSlideChange, 6000);
+        }
+
+
+    }
+
 
 
     nextButton.addEventListener("click", () => {
@@ -75,6 +96,8 @@ export const domController = function () {
 
         if (slidesArray.indexOf(currentSlide) > 0) {
             arrowFunctionality.backSlideChange(currentSlide);
+
+            // setTimeout(automaticSlideChange, 5000);
         }
 
     });
@@ -96,17 +119,17 @@ export const domController = function () {
     console.log(slideButtonsArray);
 
 
-    // set up automatic slide change:
-    function automaticSlideChange() {
-        if (slidesArray.indexOf(currentSlide) < 7) {
-            arrowFunctionality.nextSlideChange(currentSlide);
+    // // set up automatic slide change:
+    // function automaticSlideChange() {
+    //     if (slidesArray.indexOf(currentSlide) < 7) {
+    //         arrowFunctionality.nextSlideChange(currentSlide);
 
-            setTimeout(automaticSlideChange, 5000);
-            console.log('5 seconds passed');
-        };
+    //         setTimeout(automaticSlideChange, 5000);
+    //         console.log('timer ran');
+    //     };
 
 
-    }
+    // }
     
     setTimeout(automaticSlideChange, 5000);
 

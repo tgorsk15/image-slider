@@ -33,6 +33,10 @@ export const arrowsController = function () {
 
         domRun.renderSlide(newCurrentSlide);
 
+        // resets timer
+        // domRun.automaticSlideChange();
+        // console.log(domRun.automaticSlideChange);
+
     }
 
 
