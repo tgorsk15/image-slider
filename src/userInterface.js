@@ -96,11 +96,23 @@ export const domController = function () {
     console.log(slideButtonsArray);
 
 
+    // set up automatic slide change:
+    function automaticSlideChange() {
+        if (slidesArray.indexOf(currentSlide) < 7) {
+            arrowFunctionality.nextSlideChange(currentSlide);
+
+            setTimeout(automaticSlideChange, 5000);
+            console.log('5 seconds passed');
+        };
+
+
+    }
+    
+    setTimeout(automaticSlideChange, 5000);
 
 
 
 
-
-    return { renderSlide, resetSlides, changeActiveButton };
+    return { renderSlide, resetSlides, changeActiveButton, automaticSlideChange };
 
 };

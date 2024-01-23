@@ -24,6 +24,7 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 0px 25px;
+    margin-top: 13px;
     min-width: 270px;
 }
 
@@ -49,13 +50,20 @@ img {
   width: 1050px;
   height: 590px;
   border-radius: 25px;
+  box-shadow: 3px 3px 13px 0px rgb(56, 55, 55);
 }
 
+.forward, .back {
+
+}
 
 .slide-button {
     margin: 0px 10px;
+    border-radius: 25px;
 }
 
 .slide-button-active {
     background-color: red;
+    margin: 0px 10px;
+    border-radius: 25px;
 }
