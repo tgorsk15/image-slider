@@ -61,7 +61,19 @@ body {
 }
 
 .forward, .back {
+    background-color: red;
+    background: none;
+    border: none;
+}
 
+.next-arrow, .back-arrow {
+    max-height: 30px;
+    transition: all 0.4s;
+}
+
+.next-arrow:hover, .back-arrow:hover {
+    transform: scale(1.2);
+    filter: invert(95%) sepia(2%) saturate(0%) hue-rotate(351deg) brightness(86%) contrast(90%);
 }
 
 .slide-button {

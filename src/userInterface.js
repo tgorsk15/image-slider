@@ -1,7 +1,7 @@
 import { slidesArray, slideButtonsArray } from "./index";
 import { arrowsController, slideButtonsController } from "./buttonLogic";
-// import rightArrowPic from "icons/.right-arrow.png";
-// import leftArrowPic from "./icons/.left-arrow.png"
+import rightArrowPic from "./icons/right-arrow.png";
+import leftArrowPic from "./icons/left-arrow.png"
 
 // eslint-disable-next-line import/prefer-default-export
 export const domController = function () {
@@ -16,9 +16,16 @@ export const domController = function () {
 
 
     function styleButtons() {
-        const rightArrow = document.createElement('img')
+        const rightArrow = new Image();
         rightArrow.src = rightArrowPic
+        rightArrow.classList.add('next-arrow');
 
+        const leftArrow =new Image();
+        leftArrow.src = leftArrowPic;
+        leftArrow.classList.add('back-arrow');
+
+        nextButton.appendChild(rightArrow);
+        backButton.appendChild(leftArrow);
     }
 
 
@@ -135,15 +142,6 @@ export const domController = function () {
 
 
 
-    return { 
-        renderSlide, 
-
-        resetSlides, 
-
-        changeActiveButton,
-
-        automaticSlideChange,
-    
-        styleButtons };
+    return { renderSlide, resetSlides, changeActiveButton, automaticSlideChange, styleButtons };
 
 };

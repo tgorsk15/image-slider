@@ -1,4 +1,4 @@
-import { arrowsController } from "./buttonLogic";
+// import { arrowsController } from "./buttonLogic";
 import "./styles.css";
 import { domController } from "./userInterface";
 
@@ -22,6 +22,7 @@ console.log(slidesArray);
 // eslint-disable-next-line prefer-const, import/no-mutable-exports
 export let activeSlide = slidesArray[0];
 
+domRun.styleButtons();
 domRun.renderSlide(slidesArray[0]);
 
 
